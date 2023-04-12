@@ -8,7 +8,8 @@ const messageInput = form.querySelector('textarea[name="message"]');
 const initialStored = localStorage.getItem('feedback-form-state');
 if (initialStored) {
   const { email, message } = JSON.parse(initialStored);
-  (emailInput.value = email), (messageInput.value = message);
+  emailInput.value = email;
+  messageInput.value = message;
 }
 
 form.addEventListener('input', throttle(onInput, 500));
@@ -26,8 +27,8 @@ const storedData = localStorage.getItem('feedback-form-state');
 
 if (storedData) {
   const { email, message } = JSON.parse(storedData);
-  email.value = dataForm.email;
-  message.value = dataForm.message;
+  email.value = email;
+  message.value = message;
 }
 
 form.addEventListener('submit', onSubmit);
